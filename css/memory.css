@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+:root {
+    --pri-color: #7b9e1a;
+    --sec-color: #97bf1e;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--pri-color);
+    font-family: "Nerko One", cursive;
+}
+
+.container {
+    margin: 10px auto;
+    width: fit-content;
+    text-align: center;
+}
+h1 {
+    color: #fff;
+    letter-spacing: 5px;
+    font-size: 2.3rem;
+}
+
+button {
+    background-color: var(--sec-color);
+    padding: 20px 40px;
+    font-size: 1.7rem;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Nerko One", cursive;
+    font-weight: 500;
+}
+button:hover {
+    background-color: #8cb319;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(2, 200px);
+    gap: 50px;
+    background-color: var(--sec-color);
+    padding: 50px;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card.clicked:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.front-part,
+.back-part {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+.back-part {
+    transform: rotateY(180deg);
+}
